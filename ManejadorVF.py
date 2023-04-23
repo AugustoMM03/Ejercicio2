@@ -30,7 +30,7 @@ class ManejadorViajeros:
             if numviajero == self.__ListaViajeros[v].getNumViajero():
                 viajero = self.__ListaViajeros[v]
                 print("Se encontro al viajero")
-                return viajero
             v += 1
         if viajero == None:
             print("No se encontro al viajero ingresado")
+        return viajero
