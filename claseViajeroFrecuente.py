@@ -33,7 +33,7 @@ class ViajeroFrecuente:
     __nombre = ''
     __apellido = ''
     __millasacumuladas = 0 
-    def __init__(self, numeroviajero = "", dni="", nombre="", apellido="", millasacumuladas=""):
+    def __init__(self, numeroviajero = 0, dni='', nombre='', apellido='', millasacumuladas=0):
         self.__numeroviajero = numeroviajero
         self.__dni = dni
         self.__nombre = nombre
@@ -49,7 +49,11 @@ class ViajeroFrecuente:
 
     def canjearMillas(self, canjear):
         if canjear > self.__millasacumuladas:
-            print("Error en la operacion, no tiene millas suficientes para realizar el canje")
+            print("Error en la operacion, no tiene millas suficientes para realizar el canje, tiene: ")
         else:
             self.__millasacumuladas -= canjear
+            print("Millas canjeadas, le quedan: ")
         return self.__millasacumuladas
+
+    def getNumViajero(self):
+        return self.__numeroviajero

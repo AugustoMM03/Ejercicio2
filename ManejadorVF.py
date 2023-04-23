@@ -15,37 +15,22 @@ class ManejadorViajeros:
             d = str(fila[1])
             nom = str(fila[2])
             ape = str (fila[3])
-            viajero = VF.ViajeroFrecuente(numvia,d,nom,ape)
+            mill = int(fila[4])
+            viajero = VF.ViajeroFrecuente(numvia,d,nom,ape,mill)
             self.__ListaViajeros.append(viajero)
+
     def leerLista(self):
         for p in range (len(self.__ListaViajeros)):
             print("{} {} {} {}".format(self.__ListaViajeros[p]))
 
-    def buscarViajero(self):
-        numviajero = int(input("Ingrese el numero de viajero frecuente: "))
-        viajero = VF.ViajeroFrecuente()
-        v=0
-        while(self.__ListaViajeros[v] != numviajero):
-            if numviajero == self.__ListaViajeros[v]:
+    def buscarViajero(self, numviajero):
+        viajero = None
+        v = 0
+        while(v < len(self.__ListaViajeros)):
+            if numviajero == self.__ListaViajeros[v].getNumViajero():
                 viajero = self.__ListaViajeros[v]
                 print("Se encontro al viajero")
+                return viajero
             v += 1
         if viajero == None:
             print("No se encontro al viajero ingresado")
-            exit()
-        
-        opcion = None
-        while opcion != ["1", "2", "3"]:
-            print("Menu de opciones: ")
-            print("1)- Consultar Millas.")
-            print("2)- Acumular Millas.")
-            print("3)- Canjear Millas.")
-            opcion = int(input("Ingrese una opción: "))
-            if opcion == "1":
-                print("Cantidad de millas acumuladas: ", viajero.cantidadTotaldeMillas())
-            elif opcion == "2":
-                millas = int(input("Ingrese la cantidad de millas a acumular: "))
-                print("Millas acumuladas: ", viajero.acumularMillas(millas))
-            elif opcion == "3":
-                millas = int(input("Ingrese la cantidad de millas a canjear: "))
-                print("Millas acumuladas: ", viajero.canjearMillas(millas))
