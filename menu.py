@@ -6,7 +6,7 @@ class MenuOpciones:
         self.__opcion = None
 
     def opciones(self, registro):
-        while self.__opcion != ("[1, 2, 3]"):
+        while self.__opcion != 4:
             print("Menu de opciones: ")
             print("1)- Consultar Millas.")
             print("2)- Acumular Millas.")
